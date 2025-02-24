@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nitish's Portfolio</title>
     <style>
-        /* ✅ 1. Body aur HTML ke liye scrolling enable karein */
-        html, body {
+         /* ✅ 1. Body aur HTML ke liye scrolling enable karein */
+         html, body {
             height: 100%;
+            width: 100%;
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
-            overflow-y: auto;
+            overflow: auto; /* Left-right & Up-down scroll enable */
             font-family: Calibri, sans-serif;
             background: linear-gradient(to right, #1a1a2e, #16213e);
             color: white;
@@ -143,6 +143,7 @@
             min-height: 100vh;
             border: none;
             display: none;
+            overflow: auto;
         }
 
         /* ✅ 9. Footer fix karein */
@@ -216,7 +217,8 @@
     </div>
 
     <!-- ✅ Iframe for loading content -->
-    <iframe name="content-frame" id="content-frame"></iframe>
+    <iframe name="content-frame" id="content-frame" scrolling="yes"></iframe>
+
 
     <!-- ✅ Footer -->
     <footer>
@@ -225,6 +227,15 @@
 
     <!-- ✅ JavaScript for sidebar toggle and menu clicking -->
     <script>
+document.getElementById("content-frame").onload = function () {
+    let iframe = this;
+    setTimeout(function () {
+        iframe.style.height = iframe.contentWindow.document.documentElement.scrollHeight + "px";
+        iframe.contentWindow.scrollTo(0, 0); // ✅ Ensure top scrolling
+    }, 100);
+};
+
+
         document.addEventListener("DOMContentLoaded", function () {
             let sidebar = document.getElementById("sidebar");
             let hamburger = document.querySelector(".hamburger");
