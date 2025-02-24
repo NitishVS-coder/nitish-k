@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education</title>
+    <style>
+        body {
+            background: #16213e;
+            color: white;
+            font-family: Calibri, sans-serif;
+            padding: 20px;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        /* Slide-in animation */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .content {
+            opacity: 0;
+            animation: slideIn 1s ease-out forwards;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h2>Education</h2>
+        <p><strong><a href="https://drive.google.com/file/d/17pAzLZKwjJQ7xi-osMe8BB9eARgk0Vvp/view?usp=sharing"> 10th Pass:</a></strong> CBSE (2021)</p>
+        <p><strong>12th Pass:</strong> NIOS (2024) - Arts Background</p>
+        <p><strong>Diploma:</strong> Advance Diploma in Information Technology (SCP Infotech Institute)</p>
+        <p><strong>Graduation:</strong> BCA (Bachelor of Computer Applications) - First Year</p>
+    </div>
+</body>
+</html>

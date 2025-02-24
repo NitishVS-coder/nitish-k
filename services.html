@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <style>
+        body {
+            background: #16213e;
+            color: white;
+            font-family: Calibri, sans-serif;
+            padding: 20px;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        /* Slide-in animation */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .content {
+            opacity: 0;
+            animation: slideIn 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h2>Services</h2>
+        <p>Comeing soon...</p>
+    </div>
+</body>
+</html>

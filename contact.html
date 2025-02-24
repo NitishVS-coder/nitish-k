@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <style>
+        body {
+            background: #16213e;
+            color: white;
+            font-family: Calibri, sans-serif;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        /* Slide-in animation */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .content {
+            opacity: 0;
+            animation: slideIn 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h2>Contact</h2>
+        <p><strong>Email:</strong> nitish6181@gmail.com</p>
+        <p><strong>Phone:</strong> +91 9971945966</p>
+        <p><strong>Address:</strong> Sarita Vihar, M.P.K Ext., New Delhi - 110076</p>
+    </div>
+</body>
+</html>

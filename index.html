@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitish's Portfolio</title>
+    <style>
+        /* ✅ 1. Body aur HTML ke liye scrolling enable karein */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            font-family: Calibri, sans-serif;
+            background: linear-gradient(to right, #1a1a2e, #16213e);
+            color: white;
+        }
+
+        /* ✅ 2. Navbar fixed karein */
+        nav {
+            background: #0f3460;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* ✅ 3. Sidebar scrollable banayein */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background: #0f3460;
+            transition: left 0.3s ease-in-out;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+            display: block;
+        }
+
+        /* ✅ 4. Sidebar ke andar scrolling enable karein */
+        .sidebar-content {
+            height: calc(100vh - 40px);
+            overflow-y: auto;
+            padding-top: 60px;
+        }
+
+        .sidebar-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .sidebar-content::-webkit-scrollbar-thumb {
+            background-color: #1931bca3;
+            border-radius: 10px;
+        }
+
+        .sidebar-content::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            font-size: 18px;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: #1a1a2e;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        /* ✅ 5. Navbar menu (sirf desktop view me dikhai dega) */
+        .menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            margin: 0 15px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #f0a500;
+        }
+
+        /* ✅ 6. Hamburger button (sirf mobile view ke liye) */
+        .hamburger {
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            display: none;
+            align-items: center;
+        }
+
+        /* ✅ 7. Main content properly scroll kare */
+        .main-container {
+            min-height: 100vh;
+            margin-top: 80px;
+            padding: 20px;
+            text-align: center;
+            overflow-y: auto;
+            animation: fadeInUp 1s ease-in-out; /* 🔥 Pehle wala animation wapas */
+        }
+
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            animation: fadeInUp 1.2s ease-in-out;
+        }
+
+        /* ✅ 8. Iframe ka height fix karein */
+        iframe {
+            width: 100%;
+            min-height: 100vh;
+            border: none;
+            display: none;
+        }
+
+        /* ✅ 9. Footer fix karein */
+        footer {
+            padding: 20px;
+            background: #0f3460;
+            text-align: center;
+            position: relative;
+            width: 100%;
+        }
+
+        /* ✅ 10. Animation Effects */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ✅ 11. Responsive Design */
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ✅ Navbar -->
+    <nav>
+        <button class="hamburger">☰ <span class="menu-text">Menu</span></button>
+        <ul class="menu">
+            <li><a href="about.html" class="menu-link">About</a></li>
+            <li><a href="education.html" class="menu-link">Education</a></li>
+            <li><a href="experience.html" class="menu-link">Experience</a></li>
+            <li><a href="skills.html" class="menu-link">Skills</a></li>
+            <li><a href="projects.html" class="menu-link">Projects</a></li>
+            <li><a href="services.html" class="menu-link">Services</a></li>
+            <li><a href="contact.html" class="menu-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- ✅ Sidebar (Scrollable) -->
+    <div class="sidebar" id="sidebar">
+        <span class="close-btn">✖</span>
+        <div class="sidebar-content">
+            <a href="about.html" class="menu-link">About</a>
+            <a href="education.html" class="menu-link">Education</a>
+            <a href="experience.html" class="menu-link">Experience</a>
+            <a href="skills.html" class="menu-link">Skills</a>
+            <a href="projects.html" class="menu-link">Projects</a>
+            <a href="services.html" class="menu-link">Services</a>
+            <a href="contact.html" class="menu-link">Contact</a>
+        </div>
+    </div>
+
+    <!-- ✅ Main Content -->
+    <div class="main-container" id="main-container">
+        <img src="Nitish.jpeg" alt="Nitish's Photo" class="profile-pic">
+        <h2>About Me</h2>
+        <p>I am a skilled professional with a passion for technology and quality work. Proficient in MS Office and advanced Excel, I manage digital data efficiently. I have experience in graphic and web design, with good knowledge of accounts, allowing me to handle various tasks effectively. I value simplicity and quality, known for my professionalism and good work ethics..</p>
+    </div>
+
+    <!-- ✅ Iframe for loading content -->
+    <iframe name="content-frame" id="content-frame"></iframe>
+
+    <!-- ✅ Footer -->
+    <footer>
+        &copy; 2025 Nitish. All Rights Reserved.
+    </footer>
+
+    <!-- ✅ JavaScript for sidebar toggle and menu clicking -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let sidebar = document.getElementById("sidebar");
+            let hamburger = document.querySelector(".hamburger");
+            let closeBtn = document.querySelector(".close-btn");
+
+            // Sidebar toggle
+            hamburger.addEventListener("click", function () {
+                sidebar.style.left = sidebar.style.left === "0px" ? "-250px" : "0px";
+            });
+
+            // Sidebar close button
+            closeBtn.addEventListener("click", function () {
+                sidebar.style.left = "-250px";
+            });
+
+            // Menu links iframe me load karein
+            document.querySelectorAll(".menu-link").forEach(link => {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    document.getElementById("content-frame").src = this.getAttribute("href");
+                    document.getElementById("content-frame").style.display = "block";
+                    document.getElementById("main-container").style.display = "none";
+                    sidebar.style.left = "-250px";
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
