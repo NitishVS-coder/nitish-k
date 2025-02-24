@@ -15,6 +15,7 @@
             font-family: Calibri, sans-serif;
             background: linear-gradient(to right, #1a1a2e, #16213e);
             color: white;
+            scroll-behavior: smooth;
         }
 
         /* ✅ 2. Navbar fixed karein */
@@ -144,6 +145,7 @@
             border: none;
             display: none;
             overflow: auto;
+            scroll-behavior: smooth;
         }
 
         /* ✅ 9. Footer fix karein */
@@ -231,7 +233,7 @@ document.getElementById("content-frame").onload = function () {
     let iframe = this;
     setTimeout(function () {
         iframe.style.height = iframe.contentWindow.document.documentElement.scrollHeight + "px";
-        iframe.contentWindow.scrollTo(0, 0); // ✅ Ensure top scrolling
+        iframe.contentWindow.scrollTo({ top: 0, behavior: "smooth" }); // ✅ Smooth scrolling to top
     }, 100);
 };
 
